@@ -3,6 +3,8 @@
     <head>
         <html lang="en" dir="ltr">
         <meta charset="utf-8">
+		<title>Welcome</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
         <style type="text/css">
 
 	      body
@@ -10,7 +12,7 @@
 			border: 2px solid black;
 	   		padding: 2500;
 	   		margin: 0;
-	    	background: url("https://cdn.hipwallpaper.com/i/90/8/7Sc3Gz.jpg");
+	    	<!--background: url("");-->
 	    	background-repeat: no-repeat;
 	    	background-size: 100%;	      }
 
@@ -43,24 +45,66 @@
 
 	      }
 
-        <title>Welcome</title>
+        
+		
+		.button {
+  border-radius: 4px;
+  background-color: 161932;
+  border: none;
+  color: #000000;
+  text-align: center;
+  
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 		</style>
     </head>
 
-    <body>
+    <body background="{{ url_for('static',filename='img.jpg') }}">
         {% extends "template.html" %}
         {% block content %}
-        <h1 style="text-align:center;"><font color="gold"> ** Welcome to the Movie Recommender **</h1>
+		
+        <h1 style="text-align:center;"><font color=#E39BB9><u><i> <b>Movie Recommender</b></i></u></h1>
 
 	        <div id="banner">
 	        <form action="{{ url_for('rating') }}" method="GET">
 
-	     		<p class="lead"><font color="black"><strong>The idea is that you rate several pre-defined genres based on your taste and then<br/> receive a recommendation list containing the movies  that you'll most probably like! <br/><br/><font color="navy">Press Go when you are ready!</strong></p>
-	     		<button type="submit" class="btn btn-success"><font color="navy"><strong>Go!</strong></button>
+	     		<p class="lead"><font color="black"><strong>Creating recommendation system based upon users rating<br/><br><font color="navy">Press Go when you are ready!</strong></p>
+	     		
+<button class="button"><span>GO</span></button>
 	   		</form>
 	   		</div>
 	   		<div>
-	   			<h6><br><br><br><br><br><font color="hotpink" face=verdana>Programming Machine Learning Applications<br>© DePaul University</h6></div>
+	   			<h6><br><br><br><br><br><font color="hotpink" face=verdana>Team Mile-Storm<br>fr.CRCE,Bandra</h6></div>
 
         {% endblock %}
 	</body>
